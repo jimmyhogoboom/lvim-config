@@ -60,6 +60,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.dashboard.active = true
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.terminal.direction = 'tab'
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 
