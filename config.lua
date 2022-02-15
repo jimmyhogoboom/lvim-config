@@ -12,6 +12,8 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 -- lvim.colorscheme = "onedarker"
+vim.opt.termguicolors = true
+vim.g["gruvbox_material_background"] = "hard"
 lvim.colorscheme = "gruvbox-material"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -181,10 +183,8 @@ local init_custom_options = function()
 end
 init_custom_options()
 
--- TODO: add gruvbox theme
 -- TODO: enable automatic folding
 -- TODO: move customizations to your own file and import them here
--- TODO: create repo and commit
 -- TODO: install paren highlighting
 -- TODO: enable drawing line for indents
 
