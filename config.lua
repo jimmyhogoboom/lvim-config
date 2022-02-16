@@ -162,8 +162,10 @@ lvim.plugins = {
     end,
   },
   { "sainnhe/gruvbox-material" },
-  {"Yilin-Yang/vim-markbar"}
+  { "Yilin-Yang/vim-markbar" },
+  { "p00f/nvim-ts-rainbow" }
 }
+lvim.builtin.treesitter.rainbow.enable = true
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
@@ -187,6 +189,5 @@ init_custom_options()
 
 -- TODO: enable automatic folding
 -- TODO: move customizations to your own file and import them here
--- TODO: install paren highlighting
 -- TODO: enable drawing line for indents
 
