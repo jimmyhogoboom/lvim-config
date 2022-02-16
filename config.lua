@@ -161,7 +161,8 @@ lvim.plugins = {
       require("todo-comments").setup()
     end,
   },
-  { "sainnhe/gruvbox-material" }
+  { "sainnhe/gruvbox-material" },
+  {"Yilin-Yang/vim-markbar"}
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
