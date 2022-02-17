@@ -163,9 +163,22 @@ lvim.plugins = {
   },
   { "sainnhe/gruvbox-material" },
   { "Yilin-Yang/vim-markbar" },
-  { "p00f/nvim-ts-rainbow" }
+  { "p00f/nvim-ts-rainbow" },
+  { "SmiteshP/nvim-gps" }
 }
+
+-- Setup for plugins
 lvim.builtin.treesitter.rainbow.enable = true
+
+local config = function ()
+  local gps = require("nvim-gps")
+  -- TODO: Configure to show nested javascript functions
+  gps.setup()
+  lvim.builtin.lualine.sections.lualine_c = {
+    { gps.get_location, cond = gps.is_available },
+  }
+end
+config()
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
