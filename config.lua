@@ -184,6 +184,7 @@ config()
 vim.api.nvim_command('augroup javascript_folding')
 vim.api.nvim_command('au!')
 vim.api.nvim_command('au FileType javascript setlocal foldmethod=syntax')
+vim.api.nvim_command('au FileType typescript setlocal foldmethod=syntax')
 vim.api.nvim_command('augroup END')
 
 -- vim.g["javascript_conceal_function"]             = "ƒ"
@@ -219,7 +220,6 @@ local init_custom_options = function()
 end
 init_custom_options()
 
--- TODO: enable automatic folding
 -- TODO: move customizations to your own file and import them here
 -- TODO: enable drawing line for indents
 
