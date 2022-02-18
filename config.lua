@@ -187,6 +187,7 @@ vim.api.nvim_command('au FileType javascript setlocal foldmethod=syntax')
 vim.api.nvim_command('au FileType typescript setlocal foldmethod=syntax')
 vim.api.nvim_command('augroup END')
 
+-- TODO: Customize folding text, and consider other options at https://github.com/pangloss/vim-javascript#concealing-characters
 -- vim.g["javascript_conceal_function"]             = "ƒ"
 -- vim.g["javascript_conceal_null"]                 = "ø"
 -- vim.g["javascript_conceal_this"]                 = "@"
@@ -212,6 +213,7 @@ local init_custom_options = function()
 		scrolloff = 3, -- Determines the number of context lines you would like to see above and below the cursor
 		ignorecase = true, -- Ignore case in search
 		smartcase = true, -- Case-sensitive search when search term contains uppercase characters. Otherwise, case-sensitive search.  timeoutlen = 200, -- Time to wait for a mapped sequence to complete (in milliseconds)
+    foldlevelstart = 9,
 	}
 
 	for k, v in pairs(custom_options) do
