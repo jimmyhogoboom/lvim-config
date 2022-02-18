@@ -11,10 +11,10 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
--- lvim.colorscheme = "onedarker"
+
 vim.opt.termguicolors = true
-vim.g["gruvbox_material_background"] = "hard"
 lvim.colorscheme = "gruvbox-material"
+vim.g["gruvbox_material_background"] = "hard"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -164,7 +164,8 @@ lvim.plugins = {
   { "sainnhe/gruvbox-material" },
   { "Yilin-Yang/vim-markbar" },
   { "p00f/nvim-ts-rainbow" },
-  { "SmiteshP/nvim-gps" }
+  { "SmiteshP/nvim-gps" },
+  { "pangloss/vim-javascript" }
 }
 
 -- Setup for plugins
@@ -179,6 +180,24 @@ local config = function ()
   }
 end
 config()
+
+vim.api.nvim_command('augroup javascript_folding')
+vim.api.nvim_command('au!')
+vim.api.nvim_command('au FileType javascript setlocal foldmethod=syntax')
+vim.api.nvim_command('augroup END')
+
+-- vim.g["javascript_conceal_function"]             = "ƒ"
+-- vim.g["javascript_conceal_null"]                 = "ø"
+-- vim.g["javascript_conceal_this"]                 = "@"
+-- vim.g["javascript_conceal_return"]               = "⇚"
+-- vim.g["javascript_conceal_undefined"]            = "¿"
+-- vim.g["javascript_conceal_NaN"]                  = "ℕ"
+-- vim.g["javascript_conceal_prototype"]            = "¶"
+-- vim.g["javascript_conceal_static"]               = "•"
+-- vim.g["javascript_conceal_super"]                = "Ω"
+-- vim.g["javascript_conceal_arrow_function"]       = "⇒"
+-- vim.g["javascript_conceal_noarg_arrow_function"] = "🞅"
+-- vim.g["javascript_conceal_underscore_arrow_function"] = "🞅"
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
