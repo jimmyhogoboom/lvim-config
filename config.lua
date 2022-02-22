@@ -1,3 +1,7 @@
+-- TODO: install GraphQL support
+-- TODO: move customizations to your own file and import them here
+-- TODO: enable drawing line for indents
+
 --[[
 lvim is the global options object
 
@@ -11,6 +15,8 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
+
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 vim.opt.termguicolors = true
 lvim.colorscheme = "gruvbox-material"
