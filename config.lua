@@ -1,4 +1,3 @@
--- TODO: install GraphQL support
 -- TODO: move customizations to your own file and import them here
 -- TODO: enable drawing line for indents
 
@@ -177,7 +176,8 @@ lvim.plugins = {
   { "Yilin-Yang/vim-markbar" },
   { "p00f/nvim-ts-rainbow" },
   { "SmiteshP/nvim-gps" },
-  { "pangloss/vim-javascript" }
+  { "pangloss/vim-javascript" },
+  { "jparise/vim-graphql" }
 }
 
 -- Setup for plugins
