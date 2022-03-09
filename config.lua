@@ -18,7 +18,8 @@ lvim.format_on_save = true
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 vim.opt.termguicolors = true
-lvim.colorscheme = "gruvbox-material"
+-- lvim.colorscheme = "gruvbox-material"
+lvim.colorscheme = "onedarker"
 vim.g["gruvbox_material_background"] = "hard"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
