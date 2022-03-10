@@ -157,15 +157,7 @@ linters.setup {
   --   ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
   --   filetypes = { "javascript", "python" },
   -- },
-  { 
-    command = "eslint",
-    filetypes = {
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact"
-    }
-  }
+  { command = "eslint_d" },
 }
 
 -- Additional Plugins
