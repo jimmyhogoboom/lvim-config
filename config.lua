@@ -26,7 +26,7 @@ vim.g["gruvbox_material_background"] = "hard"
 lvim.leader = "space"
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<leader>q"] = ":mksession!<cr> | :q<cr>"
+lvim.keys.normal_mode["<leader>q"] = "<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
