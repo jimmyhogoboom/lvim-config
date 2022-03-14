@@ -229,6 +229,7 @@ local init_custom_options = function()
     ignorecase = true, -- Ignore case in search
     smartcase = true, -- Case-sensitive search when search term contains uppercase characters. Otherwise, case-sensitive search.  timeoutlen = 200, -- Time to wait for a mapped sequence to complete (in milliseconds)
     foldlevelstart = 9,
+    textwidth = 120,
   }
 
   for k, v in pairs(custom_options) do
