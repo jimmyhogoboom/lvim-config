@@ -22,11 +22,16 @@ vim.opt.termguicolors = true
 lvim.colorscheme = "onedarker"
 vim.g["gruvbox_material_background"] = "hard"
 
+-- vim.g.bufferline.icon_pinned = '車';
+
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<leader>q"] = "<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession! Session.vim<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
+lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferPin<CR>"
+lvim.keys.normal_mode["<leader>b<"] = "<CMD>BufferMovePrevious<CR>"
+lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferMoveNext<CR>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
