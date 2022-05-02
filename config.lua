@@ -69,7 +69,7 @@ lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferMoveNext<CR>"
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.dashboard.active = true
+lvim.builtin.alpha.mode = "dashboard";
 lvim.builtin.notify.active = true
 
 lvim.builtin.nvimtree.setup.view.side = "left"
@@ -168,11 +168,11 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
+  --     {"folke/tokyonight.nvim"},
+  --     {
+  --       "folke/trouble.nvim",
+  --       cmd = "TroubleToggle",
+  --     },
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
@@ -191,7 +191,7 @@ lvim.plugins = {
 -- Setup for plugins
 lvim.builtin.treesitter.rainbow.enable = true
 
-local config = function ()
+local config = function()
   local gps = require("nvim-gps")
   -- TODO: Configure to show nested javascript functions
   gps.setup()
@@ -245,4 +245,3 @@ init_custom_options()
 
 -- TODO: move customizations to your own file and import them here
 -- TODO: enable drawing line for indents
-
