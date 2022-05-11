@@ -191,15 +191,12 @@ lvim.plugins = {
 -- Setup for plugins
 lvim.builtin.treesitter.rainbow.enable = true
 
-local config = function ()
-  local gps = require("nvim-gps")
-  -- TODO: Configure to show nested javascript functions
-  gps.setup()
-  lvim.builtin.lualine.sections.lualine_c = {
-    { gps.get_location, cond = gps.is_available },
-  }
-end
-config()
+local components = require("lvim.core.lualine.components")
+lvim.builtin.lualine.sections.lualine_b = { components.branch, components.diff }
+lvim.builtin.lualine.sections.lualine_c = { "%{@%}", components.diagnostics }
+-- lvim.builtin.lualine.sections.lualine_c = { "echo substitute(getcwd(), ':t')", components.filename }
+lvim.builtin.lualine.sections.lualine_x = { components.filetype }
+lvim.builtin.lualine.sections.lualine_y = { components.location }
 
 vim.api.nvim_command('augroup javascript_folding')
 vim.api.nvim_command('au!')
@@ -233,7 +230,7 @@ local init_custom_options = function()
     scrolloff = 3, -- Determines the number of context lines you would like to see above and below the cursor
     ignorecase = true, -- Ignore case in search
     smartcase = true, -- Case-sensitive search when search term contains uppercase characters. Otherwise, case-sensitive search.  timeoutlen = 200, -- Time to wait for a mapped sequence to complete (in milliseconds)
-    foldlevelstart = 9,
+    foldlevelstart = 20,
     textwidth = 120,
   }
 
