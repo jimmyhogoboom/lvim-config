@@ -67,9 +67,12 @@ lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferMoveNext<CR>"
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 -- }
 
--- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.alpha.mode = "dashboard";
+
+-- builtin had name changed. This allows using this config on either verion
+pcall(function() lvim.builtin.alpha.mode = "dashboard" end)
+pcall(function() lvim.builtin.dashboard.active = true end)
+
 lvim.builtin.notify.active = true
 
 lvim.builtin.nvimtree.setup.view.side = "left"
