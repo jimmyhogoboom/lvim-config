@@ -29,9 +29,9 @@ lvim.leader = "space"
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<leader>q"] = "<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession! Session.vim<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
-lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferPin<CR>"
-lvim.keys.normal_mode["<leader>b<"] = "<CMD>BufferMovePrevious<CR>"
-lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferMoveNext<CR>"
+lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferLineTogglePin<CR>"
+lvim.keys.normal_mode["<leader>b<"] = "<CMD>BufferLineMovePrev<CR>"
+lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferLineMoveNext<CR>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
@@ -199,6 +199,9 @@ lvim.builtin.lualine.sections.lualine_c = { "%{@%}", components.diagnostics }
 -- lvim.builtin.lualine.sections.lualine_c = { "echo substitute(getcwd(), ':t')", components.filename }
 lvim.builtin.lualine.sections.lualine_x = { components.filetype }
 lvim.builtin.lualine.sections.lualine_y = { components.location }
+
+lvim.builtin.bufferline.options.always_show_bufferline = true
+lvim.builtin.bufferline.options.separator_style = 'slant'
 
 vim.api.nvim_command('augroup javascript_folding')
 vim.api.nvim_command('au!')
