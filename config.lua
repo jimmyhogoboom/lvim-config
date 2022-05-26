@@ -184,7 +184,7 @@ lvim.plugins = {
     end,
   },
   { "sainnhe/gruvbox-material" },
-  { "Yilin-Yang/vim-markbar" },
+  -- { "Yilin-Yang/vim-markbar" },
   { "p00f/nvim-ts-rainbow" },
   { "pangloss/vim-javascript" },
   { "jparise/vim-graphql" }
