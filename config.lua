@@ -187,7 +187,8 @@ lvim.plugins = {
   -- { "Yilin-Yang/vim-markbar" },
   { "p00f/nvim-ts-rainbow" },
   { "pangloss/vim-javascript" },
-  { "jparise/vim-graphql" }
+  { "jparise/vim-graphql" },
+  { "tpope/vim-surround" },
 }
 
 -- Setup for plugins
