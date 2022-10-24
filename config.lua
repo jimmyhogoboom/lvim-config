@@ -186,7 +186,8 @@ lvim.plugins = {
   { "pangloss/vim-javascript" },
   { "jparise/vim-graphql" },
   { "tpope/vim-surround" },
-  { "lambdalisue/suda.vim" }
+  { "lambdalisue/suda.vim" },
+  { "karb94/neoscroll.nvim" }
 }
 
 -- Setup for plugins
@@ -201,6 +202,11 @@ lvim.builtin.lualine.sections.lualine_y = { components.location }
 
 lvim.builtin.bufferline.options.always_show_bufferline = true
 lvim.builtin.bufferline.options.separator_style = 'slant'
+
+require('neoscroll').setup({
+  cursor_scrolls_alone = false,
+  easing_function = 'sine'
+})
 
 vim.api.nvim_command('augroup javascript_folding')
 vim.api.nvim_command('au!')
