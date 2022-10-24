@@ -186,6 +186,7 @@ lvim.plugins = {
   { "pangloss/vim-javascript" },
   { "jparise/vim-graphql" },
   { "tpope/vim-surround" },
+  { "lambdalisue/suda.vim" }
 }
 
 -- Setup for plugins
