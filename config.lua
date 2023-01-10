@@ -21,6 +21,7 @@ vim.opt.termguicolors = true
 -- lvim.colorscheme = "gruvbox-material"
 lvim.colorscheme = "onedarker"
 vim.g["gruvbox_material_background"] = "hard"
+require('nvim-autopairs').disable()
 
 -- vim.g.bufferline.icon_pinned = '車';
 
