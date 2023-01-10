@@ -21,6 +21,8 @@ vim.opt.termguicolors = true
 -- lvim.colorscheme = "gruvbox-material"
 lvim.colorscheme = "onedarker"
 vim.g["gruvbox_material_background"] = "hard"
+-- cmd "hi CursorLine term=bold cterm=bold guibg=Grey40"
+-- cmd "hi CursorLine cterm=NONE ctermbg=white ctermfg=black"
 require('nvim-autopairs').disable()
 
 -- vim.g.bufferline.icon_pinned = '車';
@@ -37,6 +39,10 @@ lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferLineMoveNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":bp<CR>"
 lvim.keys.normal_mode["<S-l>"] = ":bn<CR>"
 
+lvim.keys.normal_mode["<leader>O"] = "O<ESC>O"
+lvim.keys.normal_mode["<leader>o"] = "o<ESC>o"
+
+--
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
