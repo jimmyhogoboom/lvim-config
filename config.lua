@@ -42,6 +42,7 @@ lvim.keys.normal_mode["<S-l>"] = ":bn<CR>"
 lvim.keys.normal_mode["<leader>O"] = "O<ESC>O"
 lvim.keys.normal_mode["<leader>o"] = "o<ESC>o"
 
+lvim.keys.normal_mode["<leader>r"] = ":! eslint_d restart <CR><CR>"
 --
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
