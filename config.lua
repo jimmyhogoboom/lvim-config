@@ -32,7 +32,8 @@ lvim.leader = "space"
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<leader>q"] = "<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession! Session.vim<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
-lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferLineTogglePin<CR>"
+lvim.keys.normal_mode["<leader>bP"] = "<CMD>BufferLineTogglePin<CR>"
+lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferLinePick<CR>"
 lvim.keys.normal_mode["<leader>b<"] = "<CMD>BufferLineMovePrev<CR>"
 lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferLineMoveNext<CR>"
 
