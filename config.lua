@@ -36,8 +36,8 @@ lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferLineTogglePin<CR>"
 lvim.keys.normal_mode["<leader>b<"] = "<CMD>BufferLineMovePrev<CR>"
 lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferLineMoveNext<CR>"
 
-lvim.keys.normal_mode["<S-h>"] = ":bp<CR>"
-lvim.keys.normal_mode["<S-l>"] = ":bn<CR>"
+lvim.keys.normal_mode["<S-h>"] = "<CMD>BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<S-l>"] = "<CMD>BufferLineCycleNext<CR>"
 
 lvim.keys.normal_mode["<leader>O"] = "O<ESC>O"
 lvim.keys.normal_mode["<leader>o"] = "o<ESC>o"
