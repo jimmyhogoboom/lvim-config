@@ -117,9 +117,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "haskell"
 }
 
-lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
@@ -204,12 +204,12 @@ lvim.plugins = {
   },
   { "sainnhe/gruvbox-material" },
   -- { "Yilin-Yang/vim-markbar" },
-  { "p00f/nvim-ts-rainbow" },
   { "pangloss/vim-javascript" },
   { "jparise/vim-graphql" },
   { "tpope/vim-surround" },
   { "lambdalisue/suda.vim" },
-  { "karb94/neoscroll.nvim" }
+  { "karb94/neoscroll.nvim" },
+  { "evanleck/vim-svelte" }
 }
 
 -- Setup for plugins
