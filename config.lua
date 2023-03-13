@@ -18,6 +18,9 @@ lvim.format_on_save = true
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 vim.opt.termguicolors = true
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevelstart = 20
+
 -- lvim.colorscheme = "gruvbox-material"
 lvim.colorscheme = "onedarker"
 vim.g["gruvbox_material_background"] = "hard"
@@ -230,11 +233,11 @@ require('neoscroll').setup({
   easing_function = 'sine'
 })
 
-vim.api.nvim_command('augroup javascript_folding')
-vim.api.nvim_command('au!')
-vim.api.nvim_command('au FileType javascript setlocal foldmethod=syntax')
-vim.api.nvim_command('au FileType typescript setlocal foldmethod=syntax')
-vim.api.nvim_command('augroup END')
+-- vim.api.nvim_command('augroup javascript_folding')
+-- vim.api.nvim_command('au!')
+-- vim.api.nvim_command('au FileType javascript setlocal foldmethod=syntax')
+-- vim.api.nvim_command('au FileType typescript setlocal foldmethod=syntax')
+-- vim.api.nvim_command('augroup END')
 
 -- TODO: Customize folding text, and consider other options at https://github.com/pangloss/vim-javascript#concealing-characters
 -- vim.g["javascript_conceal_function"]             = "ƒ"
@@ -262,6 +265,7 @@ local init_custom_options = function()
     scrolloff = 3, -- Determines the number of context lines you would like to see above and below the cursor
     ignorecase = true, -- Ignore case in search
     smartcase = true, -- Case-sensitive search when search term contains uppercase characters. Otherwise, case-sensitive search.  timeoutlen = 200, -- Time to wait for a mapped sequence to complete (in milliseconds)
+    foldmethod = "indent",
     foldlevelstart = 20,
     textwidth = 120,
   }
