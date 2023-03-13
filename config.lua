@@ -47,7 +47,7 @@ lvim.keys.normal_mode["<leader>O"] = "O<ESC>O"
 lvim.keys.normal_mode["<leader>o"] = "o<ESC>o"
 
 -- Save a session quickly
-lvim.keys.normal_mode["<leader>S"] = ":mksession! s.vim<CR>"
+lvim.keys.normal_mode["<leader>S"] = ":mksession! s.vim<CR>:echo \"session saved\"<CR>"
 
 -- Sometimes eslint gets tripped up on a configuration change and needs to be restarted
 lvim.keys.normal_mode["<leader>r"] = ":! eslint_d restart <CR><CR>"
