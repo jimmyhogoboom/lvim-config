@@ -214,7 +214,8 @@ lvim.plugins = {
   { "karb94/neoscroll.nvim" },
   { "evanleck/vim-svelte" },
   { "Equilibris/nx.nvim" },
-  { "easymotion/vim-easymotion" }
+  { "easymotion/vim-easymotion" },
+  { "wakatime/vim-wakatime" },
 }
 
 -- Setup for plugins
