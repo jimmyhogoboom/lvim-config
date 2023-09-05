@@ -22,7 +22,7 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 20
 
 -- lvim.colorscheme = "gruvbox-material"
-lvim.colorscheme = "onedarker"
+lvim.colorscheme = "lunar"
 vim.g["gruvbox_material_background"] = "hard"
 -- cmd "hi CursorLine term=bold cterm=bold guibg=Grey40"
 -- cmd "hi CursorLine cterm=NONE ctermbg=white ctermfg=black"
