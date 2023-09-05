@@ -17,6 +17,27 @@ lvim.format_on_save = true
 
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
+----
+-- workaround for a bug in nvim-treesitter
+-- https://github.com/nvim-treesitter/nvim-treesitter/issues/1167#issuecomment-920824125
+function _G.javascript_indent()
+  local line = vim.fn.getline(vim.v.lnum)
+  local prev_line = vim.fn.getline(vim.v.lnum - 1)
+  if line:match('^%s*[%*/]%s*') then
+    if prev_line:match('^%s*%*%s*') then
+      return vim.fn.indent(vim.v.lnum - 1)
+    end
+    if prev_line:match('^%s*/%*%*%s*$') then
+      return vim.fn.indent(vim.v.lnum - 1) + 1
+    end
+  end
+
+  return vim.fn['GetJavascriptIndent']()
+end
+
+vim.cmd [[autocmd FileType javascript setlocal indentexpr=v:lua.javascript_indent()]]
+---- end workaround
+
 vim.opt.termguicolors = true
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 20
