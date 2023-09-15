@@ -1,5 +1,4 @@
 -- TODO: move customizations to your own file and import them here
--- TODO: enable drawing line for indents
 
 --[[
 lvim is the global options object
@@ -17,10 +16,37 @@ lvim.format_on_save = true
 
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
+----
+-- workaround for a bug in nvim-treesitter
+-- https://github.com/nvim-treesitter/nvim-treesitter/issues/1167#issuecomment-920824125
+function _G.javascript_indent()
+  local line = vim.fn.getline(vim.v.lnum)
+  local prev_line = vim.fn.getline(vim.v.lnum - 1)
+  if line:match('^%s*[%*/]%s*') then
+    if prev_line:match('^%s*%*%s*') then
+      return vim.fn.indent(vim.v.lnum - 1)
+    end
+    if prev_line:match('^%s*/%*%*%s*$') then
+      return vim.fn.indent(vim.v.lnum - 1) + 1
+    end
+  end
+
+  return vim.fn['GetJavascriptIndent']()
+end
+
+vim.cmd [[autocmd FileType javascript setlocal indentexpr=v:lua.javascript_indent()]]
+---- end workaround
+
 vim.opt.termguicolors = true
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevelstart = 20
+
 -- lvim.colorscheme = "gruvbox-material"
-lvim.colorscheme = "onedarker"
+lvim.colorscheme = "lunar"
 vim.g["gruvbox_material_background"] = "hard"
+-- cmd "hi CursorLine term=bold cterm=bold guibg=Grey40"
+-- cmd "hi CursorLine cterm=NONE ctermbg=white ctermfg=black"
+require('nvim-autopairs').disable()
 
 -- vim.g.bufferline.icon_pinned = '車';
 
@@ -28,10 +54,25 @@ vim.g["gruvbox_material_background"] = "hard"
 lvim.leader = "space"
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<leader>q"] = "<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession! Session.vim<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
-lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferLineTogglePin<CR>"
+lvim.keys.normal_mode["<leader>q"] =
+"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession! Session.vim<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
+lvim.keys.normal_mode["<leader>bP"] = "<CMD>BufferLineTogglePin<CR>"
+lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferLinePick<CR>"
 lvim.keys.normal_mode["<leader>b<"] = "<CMD>BufferLineMovePrev<CR>"
 lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferLineMoveNext<CR>"
+
+lvim.keys.normal_mode["<S-h>"] = "<CMD>BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<S-l>"] = "<CMD>BufferLineCycleNext<CR>"
+
+lvim.keys.normal_mode["<leader>O"] = "O<ESC>O"
+lvim.keys.normal_mode["<leader>o"] = "o<ESC>o"
+
+-- Save a session quickly
+lvim.keys.normal_mode["<leader>S"] = ":mksession! Session.vim<CR>:echo \"Session saved.\"<CR>"
+
+-- Sometimes eslint gets tripped up on a configuration change and needs to be restarted
+lvim.keys.normal_mode["<leader>r"] = ":! eslint_d restart <CR><CR>"
+--
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
@@ -68,21 +109,21 @@ lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferLineMoveNext<CR>"
 -- }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-
--- builtin had name changed. This allows using this config on either verion
-pcall(function() lvim.builtin.alpha.mode = "dashboard" end)
-pcall(function() lvim.builtin.dashboard.active = true end)
-
-lvim.builtin.notify.active = true
+lvim.builtin.alpha.mode = "dashboard";
+-- lvim.builtin.notify.active = true
 
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+-- lvim.builtin.nvimtree.show_icons.git = 0
 
 lvim.builtin.terminal.active = true
-lvim.builtin.terminal.direction = 'tab'
+lvim.builtin.terminal.direction = 'float'
 lvim.builtin.terminal.shade_terminals = true
 lvim.builtin.terminal.shade_filetypes = {}
-lvim.builtin.terminal.shading_factor = 1
+lvim.builtin.terminal.shading_factor = -20
+lvim.builtin.terminal.open_mapping = "<C-t>"
+lvim.builtin.terminal.float_opts = {
+  width = 300
+}
 
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -98,9 +139,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "haskell"
 }
 
-lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
@@ -185,10 +226,16 @@ lvim.plugins = {
   },
   { "sainnhe/gruvbox-material" },
   -- { "Yilin-Yang/vim-markbar" },
-  { "p00f/nvim-ts-rainbow" },
   { "pangloss/vim-javascript" },
   { "jparise/vim-graphql" },
   { "tpope/vim-surround" },
+  { "lambdalisue/suda.vim" },
+  { "karb94/neoscroll.nvim" },
+  { "evanleck/vim-svelte" },
+  { "Equilibris/nx.nvim" },
+  { "easymotion/vim-easymotion" },
+  { "wakatime/vim-wakatime" },
+  { "nvim-treesitter/nvim-treesitter-context" }
 }
 
 -- Setup for plugins
@@ -204,11 +251,35 @@ lvim.builtin.lualine.sections.lualine_y = { components.location }
 lvim.builtin.bufferline.options.always_show_bufferline = true
 lvim.builtin.bufferline.options.separator_style = 'slant'
 
-vim.api.nvim_command('augroup javascript_folding')
-vim.api.nvim_command('au!')
-vim.api.nvim_command('au FileType javascript setlocal foldmethod=syntax')
-vim.api.nvim_command('au FileType typescript setlocal foldmethod=syntax')
-vim.api.nvim_command('augroup END')
+require('neoscroll').setup({
+  cursor_scrolls_alone = false,
+  easing_function = 'sine'
+})
+
+require('nx').setup({
+  -- Base command to run all other nx commands, some other values may be:
+  -- - `npm nx`
+  -- - `yarn nx`
+  -- - `pnpm nx`
+  nx_cmd_root = 'nx',
+
+  -- Command running capabilities,
+  -- see nx.m.command-runners for more details
+  command_runner = require('nx.command-runners').terminal_cmd(),
+  -- Form rendering capabilities,
+  -- see nx.m.form-renderers for more detials
+  form_renderer = require('nx.form-renderers').telescope(),
+
+  -- Whether or not to load nx configuration,
+  -- see nx.loading-and-reloading for more details
+  read_init = true
+})
+
+-- vim.api.nvim_command('augroup javascript_folding')
+-- vim.api.nvim_command('au!')
+-- vim.api.nvim_command('au FileType javascript setlocal foldmethod=syntax')
+-- vim.api.nvim_command('au FileType typescript setlocal foldmethod=syntax')
+-- vim.api.nvim_command('augroup END')
 
 -- TODO: Customize folding text, and consider other options at https://github.com/pangloss/vim-javascript#concealing-characters
 -- vim.g["javascript_conceal_function"]             = "ƒ"
@@ -232,10 +303,11 @@ vim.api.nvim_command('augroup END')
 local init_custom_options = function()
   local custom_options = {
     relativenumber = true, -- Set relative numbered lines
-    colorcolumn = "120", -- Indent line at what column? Set something like '99999' to not display it
-    scrolloff = 3, -- Determines the number of context lines you would like to see above and below the cursor
-    ignorecase = true, -- Ignore case in search
-    smartcase = true, -- Case-sensitive search when search term contains uppercase characters. Otherwise, case-sensitive search.  timeoutlen = 200, -- Time to wait for a mapped sequence to complete (in milliseconds)
+    colorcolumn = "120",   -- Indent line at what column? Set something like '99999' to not display it
+    scrolloff = 3,         -- Determines the number of context lines you would like to see above and below the cursor
+    ignorecase = true,     -- Ignore case in search
+    smartcase = true,      -- Case-sensitive search when search term contains uppercase characters. Otherwise, case-sensitive search.  timeoutlen = 200, -- Time to wait for a mapped sequence to complete (in milliseconds)
+    foldmethod = "indent",
     foldlevelstart = 20,
     textwidth = 120,
   }
