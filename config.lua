@@ -71,12 +71,11 @@ lvim.keys.normal_mode["<leader>b>"] = "<CMD>BufferLineMoveNext<CR>"
 
 -- builtin had name changed. This allows using this config on either verion
 pcall(function() lvim.builtin.alpha.mode = "dashboard" end)
-pcall(function() lvim.builtin.dashboard.active = true end)
+pcall(function() lvim.builtin.alpha.active = true end)
 
-lvim.builtin.notify.active = true
+-- lvim.builtin.notify.active = true
 
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
 
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = 'tab'
@@ -176,13 +175,13 @@ lvim.plugins = {
   --       "folke/trouble.nvim",
   --       cmd = "TroubleToggle",
   --     },
-  {
-    "folke/todo-comments.nvim",
-    event = "BufRead",
-    config = function()
-      require("todo-comments").setup()
-    end,
-  },
+  -- {
+  --   "folke/todo-comments.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("todo-comments").setup()
+  --   end,
+  -- },
   { "sainnhe/gruvbox-material" },
   -- { "Yilin-Yang/vim-markbar" },
   { "p00f/nvim-ts-rainbow" },
