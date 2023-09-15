@@ -236,6 +236,7 @@ lvim.plugins = {
   { "Equilibris/nx.nvim" },
   { "easymotion/vim-easymotion" },
   { "wakatime/vim-wakatime" },
+  { "nvim-treesitter/nvim-treesitter-context" }
 }
 
 -- Setup for plugins
