@@ -1,5 +1,4 @@
 -- TODO: move customizations to your own file and import them here
--- TODO: enable drawing line for indents
 
 --[[
 lvim is the global options object
@@ -55,7 +54,8 @@ require('nvim-autopairs').disable()
 lvim.leader = "space"
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<leader>q"] = "<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession! Session.vim<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
+lvim.keys.normal_mode["<leader>q"] =
+"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession! Session.vim<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
 lvim.keys.normal_mode["<leader>bP"] = "<CMD>BufferLineTogglePin<CR>"
 lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferLinePick<CR>"
 lvim.keys.normal_mode["<leader>b<"] = "<CMD>BufferLineMovePrev<CR>"
@@ -123,8 +123,7 @@ lvim.builtin.terminal.shade_filetypes = {}
 lvim.builtin.terminal.shading_factor = -20
 lvim.builtin.terminal.open_mapping = "<C-t>"
 lvim.builtin.terminal.float_opts = {
-  width = 300,
-  height = 300
+  width = 300
 }
 
 
@@ -304,10 +303,10 @@ require('nx').setup({
 local init_custom_options = function()
   local custom_options = {
     relativenumber = true, -- Set relative numbered lines
-    colorcolumn = "120", -- Indent line at what column? Set something like '99999' to not display it
-    scrolloff = 3, -- Determines the number of context lines you would like to see above and below the cursor
-    ignorecase = true, -- Ignore case in search
-    smartcase = true, -- Case-sensitive search when search term contains uppercase characters. Otherwise, case-sensitive search.  timeoutlen = 200, -- Time to wait for a mapped sequence to complete (in milliseconds)
+    colorcolumn = "120",   -- Indent line at what column? Set something like '99999' to not display it
+    scrolloff = 3,         -- Determines the number of context lines you would like to see above and below the cursor
+    ignorecase = true,     -- Ignore case in search
+    smartcase = true,      -- Case-sensitive search when search term contains uppercase characters. Otherwise, case-sensitive search.  timeoutlen = 200, -- Time to wait for a mapped sequence to complete (in milliseconds)
     foldmethod = "indent",
     foldlevelstart = 20,
     textwidth = 120,
