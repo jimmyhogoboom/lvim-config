@@ -12,7 +12,7 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+-- lvim.format_on_save = true
 
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
@@ -140,7 +140,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
-  "haskell"
+  "haskell",
+  "ruby"
 }
 
 lvim.builtin.treesitter.highlight.enabled = true
