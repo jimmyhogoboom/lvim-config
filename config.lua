@@ -237,7 +237,14 @@ lvim.plugins = {
   { "Equilibris/nx.nvim" },
   { "easymotion/vim-easymotion" },
   { "wakatime/vim-wakatime" },
-  { "nvim-treesitter/nvim-treesitter-context" }
+  { "nvim-treesitter/nvim-treesitter-context" },
+  { "iamcco/markdown-preview.nvim",
+    ft = "markdown",
+    build = ":call mkdp#util#install()",
+    config = function()
+                vim.g.mkdp_auto_start = 1
+    end,
+  }
 }
 
 -- Setup for plugins
