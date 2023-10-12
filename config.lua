@@ -108,7 +108,6 @@ lvim.keys.normal_mode["<leader>r"] = ":! eslint_d restart <CR><CR>"
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 -- }
 
--- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.mode = "dashboard";
 -- lvim.builtin.notify.active = true
