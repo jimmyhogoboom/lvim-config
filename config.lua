@@ -70,8 +70,14 @@ lvim.keys.normal_mode["<leader>o"] = "o<ESC>o"
 -- Save a session quickly
 lvim.keys.normal_mode["<leader>S"] = ":mksession! Session.vim<CR>:echo \"Session saved.\"<CR>"
 
--- Sometimes eslint gets tripped up on a configuration change and needs to be restarted
-lvim.keys.normal_mode["<leader>r"] = ":! eslint_d restart <CR><CR>"
+lvim.builtin.which_key.mappings["r"] = {
+  name = "Restart",
+  -- Sometimes eslint gets tripped up on a configuration change and needs to be restarted
+  e = { ":! eslint_d restart <CR><CR>", "Restart Eslint" },
+  -- When GHCIDE chokes on an error, it needs to be restarted
+  h = { ":LspRestart<CR>", "Restart LSP" }
+}
+
 --
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
