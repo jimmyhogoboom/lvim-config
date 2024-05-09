@@ -43,7 +43,7 @@ vim.opt.foldlevelstart = 20
 
 -- lvim.colorscheme = "gruvbox-material"
 lvim.colorscheme = "lunar"
-vim.g["gruvbox_material_background"] = "hard"
+-- vim.g["gruvbox_material_background"] = "hard"
 -- cmd "hi CursorLine term=bold cterm=bold guibg=Grey40"
 -- cmd "hi CursorLine cterm=NONE ctermbg=white ctermfg=black"
 require('nvim-autopairs').disable()
@@ -143,9 +143,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "typescript",
   "css",
   "rust",
-  "java",
   "yaml",
   "haskell",
+  "svelte",
   "ruby"
 }
 
@@ -194,8 +194,8 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   {
     exe = "prettier",
-    filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-  },
+    filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "svelte" },
+  }
 }
 
 -- -- set additional linters
@@ -214,7 +214,7 @@ linters.setup {
   --   ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
   --   filetypes = { "javascript", "python" },
   -- },
-  { command = "eslint_d" },
+  { command = "eslint_d" }
 }
 
 -- Additional Plugins
@@ -243,11 +243,12 @@ lvim.plugins = {
   { "easymotion/vim-easymotion" },
   { "wakatime/vim-wakatime" },
   { "nvim-treesitter/nvim-treesitter-context" },
-  { "iamcco/markdown-preview.nvim",
+  {
+    "iamcco/markdown-preview.nvim",
     ft = "markdown",
     build = ":call mkdp#util#install()",
     config = function()
-                vim.g.mkdp_auto_start = 1
+      vim.g.mkdp_auto_start = 1
     end,
   }
 }
