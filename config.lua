@@ -279,7 +279,8 @@ lvim.plugins = {
     config = function()
       vim.g.mkdp_auto_start = 1
     end,
-  }
+  },
+  { "chentoast/marks.nvim" },
 }
 
 -- Setup for plugins
@@ -317,6 +318,12 @@ require('nx').setup({
   -- Whether or not to load nx configuration,
   -- see nx.loading-and-reloading for more details
   read_init = true
+})
+
+require('marks').setup({
+  default_mappings = true,
+  signs = true,
+  mappings = {}
 })
 
 -- vim.api.nvim_command('augroup javascript_folding')
