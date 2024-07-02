@@ -96,6 +96,17 @@ lvim.builtin.which_key.mappings["r"] = {
   h = { ":LspRestart<CR>", "Restart LSP" }
 }
 
+-- Make search window wider
+lvim.builtin.telescope.defaults.layout_config = {
+  width = function(_, cols, _)
+    if cols > 200 then
+      return 170
+    else
+      return cols
+    end
+  end,
+}
+
 --
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
