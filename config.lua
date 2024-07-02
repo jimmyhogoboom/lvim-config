@@ -16,6 +16,23 @@ lvim.log.level = "warn"
 
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
+--
+-- https://github.com/LunarVim/LunarVim/issues/3351#issuecomment-1363423166
+-- Show previewer when searching git files with default <leader>f
+lvim.builtin.which_key.mappings["f"] = {
+  require("lvim.core.telescope.custom-finders").find_project_files,
+  "Find File"
+}
+-- Show previewer when searching buffers with <leader>bf
+lvim.builtin.which_key.mappings.b.f = {
+  "<cmd>Telescope buffers<cr>",
+  "Find"
+}
+-- Uncomment if "graphical weirdness" is encountered:
+-- lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
+-- lvim.builtin.telescope.defaults.borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
+--
+
 ----
 -- workaround for a bug in nvim-treesitter
 -- https://github.com/nvim-treesitter/nvim-treesitter/issues/1167#issuecomment-920824125
@@ -38,6 +55,7 @@ vim.cmd [[autocmd FileType javascript setlocal indentexpr=v:lua.javascript_inden
 ---- end workaround
 
 vim.opt.termguicolors = true
+
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 20
 
