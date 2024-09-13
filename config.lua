@@ -64,6 +64,14 @@ lvim.colorscheme = "lunar"
 -- vim.g["gruvbox_material_background"] = "hard"
 -- cmd "hi CursorLine term=bold cterm=bold guibg=Grey40"
 -- cmd "hi CursorLine cterm=NONE ctermbg=white ctermfg=black"
+
+-- Improve visibility of comments
+vim.api.nvim_command([[
+  augroup ChangeCommentColour
+    autocmd colorscheme * :hi Comment guifg=#788470
+  augroup END
+]])
+
 require('nvim-autopairs').disable()
 
 -- vim.g.bufferline.icon_pinned = '車';
