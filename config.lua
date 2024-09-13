@@ -291,6 +291,7 @@ lvim.plugins = {
   },
   { "tpope/vim-rails" },
   { "chentoast/marks.nvim" },
+  { "tpope/vim-obsession" },
 }
 
 -- Setup for plugins
@@ -300,7 +301,7 @@ local components = require("lvim.core.lualine.components")
 lvim.builtin.lualine.sections.lualine_b = { components.branch, components.diff }
 lvim.builtin.lualine.sections.lualine_c = { "%{@%}", components.diagnostics }
 -- lvim.builtin.lualine.sections.lualine_c = { "echo substitute(getcwd(), ':t')", components.filename }
-lvim.builtin.lualine.sections.lualine_x = { components.filetype }
+lvim.builtin.lualine.sections.lualine_x = { "%{ObsessionStatus('[$]', '[Obsession Paused]')}", components.filetype }
 lvim.builtin.lualine.sections.lualine_y = { components.location }
 
 lvim.builtin.bufferline.options.always_show_bufferline = true
