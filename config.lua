@@ -379,5 +379,13 @@ local init_custom_options = function()
 end
 init_custom_options()
 
+--
+vim.opt.winwidth = 84
+-- winheight must be set to a small value first or it will fail
+vim.opt.winheight = 5
+vim.opt.winminheight = 5
+vim.opt.winheight = 999
+--
+
 -- TODO: move customizations to your own file and import them here
 -- TODO: enable drawing line for indents
