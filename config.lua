@@ -81,8 +81,8 @@ lvim.leader = "space"
 
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<leader>q"] =
-"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession! Session.vim<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
+-- lvim.keys.normal_mode["<leader>q"] =
+-- "<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession! Session.vim<CR> <BAR> <CMD>q<CR>" --"<CMD>NvimTreeClose<CR> <BAR> <CMD>mksession!<CR> <BAR> <CMD>q<CR>"
 lvim.keys.normal_mode["<leader>bP"] = "<CMD>BufferLineTogglePin<CR>"
 lvim.keys.normal_mode["<leader>bp"] = "<CMD>BufferLinePick<CR>"
 lvim.keys.normal_mode["<leader>b<"] = "<CMD>BufferLineMovePrev<CR>"
@@ -95,7 +95,7 @@ lvim.keys.normal_mode["<leader>O"] = "O<ESC>O"
 lvim.keys.normal_mode["<leader>o"] = "o<ESC>o"
 
 -- Save a session quickly
-lvim.keys.normal_mode["<leader>S"] = ":mksession! Session.vim<CR>:echo \"Session saved.\"<CR>"
+-- lvim.keys.normal_mode["<leader>S"] = ":mksession! Session.vim<CR>:echo \"Session saved.\"<CR>"
 
 lvim.builtin.which_key.mappings["r"] = {
   name = "Restart",
