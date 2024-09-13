@@ -288,6 +288,7 @@ lvim.plugins = {
       vim.g.mkdp_auto_start = 1
     end,
   },
+  { "tpope/vim-rails" },
   { "chentoast/marks.nvim" },
 }
 
