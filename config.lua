@@ -105,6 +105,18 @@ lvim.builtin.which_key.mappings["r"] = {
   h = { ":LspRestart<CR>", "Restart LSP" }
 }
 
+lvim.builtin.which_key.mappings["z"] = {
+  name = "Folding",
+  a = { "a", "Toggle at cursor" },
+  o = { "o", "Open at cursor" },
+  O = { "O", "Opan all at cursor" },
+  c = { "c", "Close at cursor" },
+  m = { "m", "Increase fold level" },
+  M = { "M", "Close all" },
+  r = { "r", "Decrease fold level" },
+  R = { "R", "Open all" }
+}
+
 -- Make search window wider
 lvim.builtin.telescope.defaults.layout_config = {
   width = function(_, cols, _)
